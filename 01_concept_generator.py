@@ -7,8 +7,8 @@ open_logs("concept_generator")
 # Choose between "local" or "openai" mode in config.py
 
 # RAG Parameters
-question = "How Atmospheric impacts on morbidity and mortality?"
-embeddings_json= "../LLM-Knowledge-Pool-RAG/knowledge_pool/AASZOK.json"
+question = "What are Human adaptation strategies in response to thermal stimuli?"
+embeddings_json= "../LLM-Knowledge-Pool-RAG/knowledge_pool/merged.json"
 num_results = 100
 
 def generate_concept(rag_result: str)-> str:
@@ -18,13 +18,13 @@ def generate_concept(rag_result: str)-> str:
             {
                 "role": "system",
                 "content": """You are an intern at a major architecture firm. 
-                       Your goal is to come up with 5 imaginative and very different short concepts for building designs that the jury is happy with. 
+                       Your goal is to come up with 5 research and very different ideas of how indoor thermal comfort keeping human health and well-beimgs that the jury is happy with. 
                        For each, come up a short paragraph describing the concept in a very poetic and imaginative way.
                        """,
             },
             {
                 "role": "user",
-                "content": f"""Come up with 5 short concepts for building designs. The concepts should be very different from each other. 
+                "content": f"""Come up with 5 research and very different ideas . The ideas should be very different from each other. 
                 Use the following information as a starting point:
                 {rag_result}""",
             },

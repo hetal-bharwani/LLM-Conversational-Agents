@@ -7,7 +7,7 @@ import sys
 from datetime import datetime
 
 # Mode
-mode = "openai" # "local" or "openai"
+mode = "local" # "local" or "openai"
 
 # API
 local_client = OpenAI(base_url="http://localhost:1234/v1", api_key="lm-studio")
@@ -72,6 +72,21 @@ gpt4_turbo = [
        }
 ]
 
+gpt4_vision = [
+    {
+        "model": "gpt-4-vision-preview",
+        'api_key': OPENAI_API_KEY,
+        "cache_seed": random.randint(0, 100000),
+    }
+]
+
+gpt4o = [
+      {
+          "model": "gpt-4o",
+          "api_key": OPENAI_API_KEY,
+            "cache_seed": random.randint(0, 100000),
+       }
+]
 #command_r = [
  #       {
   #          "model": "andrewcanis/c4ai-command-r-v01-GGUF",
@@ -85,6 +100,16 @@ gpt4_turbo = [
 llama3 = [
         {
             "model": "lmstudio-community/Meta-Llama-3-8B-Instruct-GGUF",
+            'api_key': 'any string here is fine',
+            'api_type': 'openai',
+            'base_url': "http://localhost:1234/v1",
+            "cache_seed": random.randint(0, 100000),
+        }
+]
+
+llava = [
+        {
+            "model": "cjpais/llava-1.6-mistral-7b-gguf",
             'api_key': 'any string here is fine',
             'api_type': 'openai',
             'base_url': "http://localhost:1234/v1",

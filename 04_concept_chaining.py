@@ -6,8 +6,8 @@ open_logs("concept_chaining")
 # README: This script can be used to chain followup questions automatically in a chain.
 
 # RAG Parameters
-question = "What is the list of building program?"
-embeddings_json= "../LLM-Knowledge-Pool-RAG/knowledge_pool/Competition_brief.json"
+question = "What are Human adaptation strategies in response to thermal stimuli?"
+embeddings_json= "../LLM-Knowledge-Pool-RAG/knowledge_pool/merged.json"
 num_results = 100
 
 def brainstorm_brief(rag_result: str)-> str:
@@ -22,10 +22,10 @@ def brainstorm_brief(rag_result: str)-> str:
             {
                 "role": "user",
                 "content": f""" ###Competition brief### : {rag_result}
-                Given your own experienced interpretation, what do you think about the challenge?
-                What would be your approach and concept for the building design in order to win the competition?
-                What would you name your design?
-                Focus on the characteristics of form, facades, materials, relationship to the place, etc.
+                 Human adaptation strategies in response to thermal stimuli primarily involve regulating body temperature through various physiological mechanisms. 
+                 These include sweating to cool down the body, shivering to generate heat, and adjusting blood flow to conserve or dissipate heat as needed. 
+                 Additi onally, behavioral adaptations such as seeking out or creating shelter from extreme temperatures, wearing clothing, 
+                 and modifying diet can help hum ans cope with thermal stimuli.
                 """,
             },
         ],
@@ -39,14 +39,14 @@ def conceptualize_programe(brainstorm: str)-> str:
             {
                 "role": "system",
                 "content":
-                       "You are a world famous architect and you are going to enter an architecture competition. You are creative and poetic in your responses. You are very knowledgable of design and architecture theory. Answer in a list format",
+                       "You are a world famous architect and you reserching how indoor thermal comfort can affecgt human health and wellbeings. You are creative and poetic in your responses. You are very knowledgable of design and architecture theory. Answer in a list format",
             },
             {
                 "role": "user",
                 "content": f""" 
-                After reading through the Concept Guidelines provided below, what are the names of the spaces you are going to design?
-                Pretend that you are a visitor. What would you see and feel in each of the spaces?
-                Focus on the characteristics of form, facades, materials, relationship to the place, etc.
+                After reading through the Concept Guidelines provided below, how are the indoor spaces you are going to design?
+                Pretend that you are a client. What would you see and feel in each of the spaces?
+                Focus on the characteristics of indoor thermal comfort and human health
                 Answer
                 ###Concept Guidelines### : {brainstorm}
                 """,
@@ -63,7 +63,7 @@ def make_prompt(programe: str)-> str:
             {
                 "role": "system",
                 "content":
-                       "You are a paiting critique that needs to come up with prompts that descibe what can be seen in a picture. Answer in the required format.",
+                       "You are a researcher that needs to come up with prompts that descibe what can be seen in a picture. Answer in the required format.",
             },
             {
                 "role": "user",
