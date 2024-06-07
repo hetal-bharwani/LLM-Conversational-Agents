@@ -7,8 +7,8 @@ open_logs("concept_generator")
 # Choose between "local" or "openai" mode in config.py
 
 # RAG Parameters
-question = "What is the list of building program?"
-embeddings_json= "../LLM-Knowledge-Pool-RAG/knowledge_pool/Competition_brief.json"
+question = "How Atmospheric impacts on morbidity and mortality?"
+embeddings_json= "../LLM-Knowledge-Pool-RAG/knowledge_pool/AASZOK.json"
 num_results = 100
 
 def generate_concept(rag_result: str)-> str:

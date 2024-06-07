@@ -5,6 +5,7 @@ import requests
 import base64
 import sys
 from datetime import datetime
+
 # Mode
 mode = "openai" # "local" or "openai"
 
@@ -17,30 +18,40 @@ embedding_model = "nomic-ai/nomic-embed-text-v1.5-GGUF"
 
 mistral_8x7b = [
         {
-            "model": "cjpais/llava-1.6-mistral-7b-gguf/llava-1.6-mistral-7b.Q6_K.gguf",
+           "model": "cjpais/llava-1.6-mistral-7b-gguf/llava-1.6-mistral-7b.Q6_K.gguf",
+           'api_key': 'any string here is fine',
+           'api_type': 'openai',
+           'base_url': "http://localhost:1234/v1",
+       }
+]
+
+mistral_7b_V2 = [
+        {
+            "model": "TheBloke/Mistral-7B-Instruct-v0.2-GGUF",
             'api_key': 'any string here is fine',
             'api_type': 'openai',
             'base_url': "http://localhost:1234/v1",
         }
 ]
 
-mistral_7b = [
-        {
-            "model": "TheBloke/Mistral-7B-Instruct-v0.2-GGUF/mistral-7b-instruct-v0.2.Q4_K_S.gguf",
-            'api_key': 'any string here is fine',
-            'api_type': 'openai',
-            'base_url': "http://localhost:1234/v1",
-        }
-]
 
-nous_capybara_3b = [
+mistral_7b_V1 = [
         {
-            "model": "RichardErkhov/NousResearch_-_Nous-Capybara-3B-V1.9-gguf",
+            "model": "mistral-7b-instruct-v0.1.Q4_0.gguf",
             'api_key': 'any string here is fine',
             'api_type': 'openai',
             'base_url': "http://localhost:1234/v1",
         }
 ]
+#nous_capybara_3b = [
+ #       {
+  ##          "model": "RichardErkhov/NousResearch_-_Nous-Capybara-3B-V1.9-gguf",
+    #        'api_key': 'any string here is fine',
+     #       'api_type': 'openai',
+      #      'base_url': "http://localhost:1234/v1",
+       # }
+#]
+
 
 westlake = [
         {
@@ -54,53 +65,26 @@ westlake = [
 
 # Notice how this model is not running locally. It uses an OpenAI key.
 gpt4_turbo = [
-        {
-            "model": "gpt-4-turbo-preview",
-            "api_key": OPENAI_API_KEY,
+      {
+          "model": "gpt-4-turbo-preview",
+          "api_key": OPENAI_API_KEY,
             "cache_seed": random.randint(0, 100000),
-        }
+       }
 ]
 
-gpt4_vision = [
-        {
-            "model": "gpt-4-vision-preview",
-            "api_key": OPENAI_API_KEY,
-            "cache_seed": random.randint(0, 100000),
-        }
-]
-
-gpt4o = [
-        {
-            "model": "gpt-4o",
-            "api_key": OPENAI_API_KEY,
-            "cache_seed": random.randint(0, 100000),
-        }
-]
-
-
-command_r = [
-        {
-            "model": "andrewcanis/c4ai-command-r-v01-GGUF",
-            'api_key': 'any string here is fine',
-            'api_type': 'openai',
-            'base_url': "http://localhost:1234/v1",
-            "cache_seed": random.randint(0, 100000),
-        }
-]
+#command_r = [
+ #       {
+  #          "model": "andrewcanis/c4ai-command-r-v01-GGUF",
+   #         'api_key': 'any string here is fine',
+    #        'api_type': 'openai',
+     #       'base_url': "http://localhost:1234/v1",
+      #      "cache_seed": random.randint(0, 100000),
+       # }
+#]
 
 llama3 = [
         {
-            "model": "QuantFactory/Meta-Llama-3-8B-Instruct-GGUF",
-            'api_key': 'any string here is fine',
-            'api_type': 'openai',
-            'base_url': "http://localhost:1234/v1",
-            "cache_seed": random.randint(0, 100000),
-        }
-]
-
-llava = [
-        {
-            "model": "xtuner/llava-llama-3-8b-v1_1-gguf",
+            "model": "lmstudio-community/Meta-Llama-3-8B-Instruct-GGUF",
             'api_key': 'any string here is fine',
             'api_type': 'openai',
             'base_url': "http://localhost:1234/v1",
@@ -125,7 +109,7 @@ def api_mode (mode):
         client = local_client
 
         # Change the completion/vision model to whatever you want to use
-        completion_model = mistral_7b #here
+        completion_model = mistral_7b_V2#here
         vision_model = llava #and here
 
         # Dont change anything below
