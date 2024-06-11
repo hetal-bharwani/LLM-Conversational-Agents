@@ -18,8 +18,8 @@ def generate_concept(rag_result: str)-> str:
             {
                 "role": "system",
                 "content": """You are an intern at a major architecture firm. 
-                       Your goal is to come up with 5 research and very different ideas of how indoor thermal comfort keeping human health and well-beimgs that the jury is happy with. 
-                       For each, come up a short paragraph describing the concept in a very poetic and imaginative way.
+                       Your goal is to come up with 5 research and very different ideas of how indoor thermal comfort affects human health and well-beings that the jury is happy with. 
+                       For each, come up a short paragraph describing the idea in a very poetic and  way.
                        """,
             },
             {
